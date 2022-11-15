@@ -4,20 +4,23 @@ class CategoriesController < ApplicationController
   end
 
   def new
-    @category = Categorie.new
+    @categories = Categorie.new
   end
 
   def show
-    @category = Categorie.find(params[:id])
+    @categorie = Categorie.find(params[:id])
   end
 
   def create
-    @category = Categorie.new(category_params)
-    if @category.save
-      flash[:success] = 'Category created'
-      redirect_to categories_path
-    else
-      render 'new'
+    new_categorie = current_user.categories.new(categorie_params)
+    respond_to do |format|
+      format.html do
+        if new_categorie.save
+          redirect_to new_categories_path, notice: 'Categorie was successfully Saved'
+        else
+          render :new, status: 'Error occured will saving Categorie'
+        end
+      end
     end
   end
 
@@ -30,7 +33,7 @@ class CategoriesController < ApplicationController
 
   private
 
-  def category_params
+  def categorie_params
     params.require(:categorie).permit(:name, :icon)
   end
 end

@@ -12,12 +12,15 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    @purchase = Purchase.new(purchase_params)
-    if @purchase.save
-      flash[:success] = 'Purchase created'
-      redirect_to purchases_path
-    else
-      render 'new'
+    new_purchase = current_user.purchases.new(purchase_params)
+    respond_to do |format|
+      format.html do
+        if new_purchase.save
+          redirect_to purchases_path, notice: 'Purchase successfully Saved'
+        else
+          render :new, status: 'Error occured will Saving Purchase'
+        end
+      end
     end
   end
 
@@ -31,6 +34,6 @@ class PurchasesController < ApplicationController
   private
 
   def purchase_params
-    params.require(:purchase).permit(:name, :icon)
+    params.require(:purchase).permit(:name, :amount)
   end
 end

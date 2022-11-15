@@ -1,0 +1,11 @@
+<div class="createCategorie">
+<h3>Create Categorie</h3>
+<%= form_with model: @categorie  do |form| %>
+  <%= form.label :name, "Name" %>
+  <%= form.text_field :name, placeholder: "Name", required: true%>
+  <%= form.label :icon, "Icon" %>
+  <%= form.text_area :icon , placeholder: "icon...", required: true %>  
+  <%= form.submit "Save" %>
+<% end %>
+</div>
+
