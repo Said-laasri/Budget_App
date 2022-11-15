@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   # # Catch all CanCan errors and alert the user of the exception
-  def after_sign_out_path_for(_resource_or_scope)
-    '/users/sign_up'
+  def after_sign_in(_resource)
+    categories_path
   end
 end

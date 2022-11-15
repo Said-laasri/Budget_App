@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
   resources :purchases
 
-  root to: 'users#index'
+  root to: 'home#index'
 end
