@@ -1,1 +1,13 @@
 <h2>    Welcome</h2>
+
+<% if current_user %>
+    <p>  You are logged in as <%= current_user.name %></p>
+
+    <%= link_to "Log out", '/users/sign_out', method: :delete %>
+<% else %>
+    <p>  You are not logged in</p>
+
+    <%= link_to "Sign up",'/users/sign_up' %>
+
+    <%= link_to "Log in",'/users/sign_in' %>
+<% end %>
