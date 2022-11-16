@@ -5,6 +5,7 @@ class PurchasesController < ApplicationController
 
   def new
     @purchase = Purchase.new
+    @category = Category.all
   end
 
   def show

@@ -1,6 +1,15 @@
 <div class="createCategorie">
 <h3>Create Categorie</h3>
-<%= form_with model: @categorie  do |form| %>
+<%= form_with model: @category  do |form| %>
+<% if @category.errors.any? %> 
+  <div class="bg-red-300"> 
+    <h3><%= pluralize(@category.errors.count, "error") %> occured:</h3> 
+    <ul> <% @category.errors.full_messages.each do |message| %> 
+      <li><%= message %></li> 
+      <% end %> 
+    </ul> 
+  </div> 
+<% end %> 
   <%= form.label :name, "Name" %>
   <%= form.text_field :name, placeholder: "Name", required: true%>
   <%= form.label :icon, "Icon" %>

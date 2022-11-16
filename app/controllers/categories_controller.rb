@@ -1,22 +1,24 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Categorie.all
+    @categories = Category.all
   end
 
   def new
-    @categories = Categorie.new
+    @category = Category.new
   end
 
   def show
-    @categorie = Categorie.find(params[:id])
+    @categories = Category.find(params[:id])
   end
 
+  
+
   def create
-    new_categorie = current_user.categories.new(categorie_params)
+    new_category = current_user.categories.new(category_params)
     respond_to do |format|
       format.html do
-        if new_categorie.save
-          redirect_to new_categories_path, notice: 'Categorie was successfully Saved'
+        if new_category.save
+          redirect_to categories_path, notice: 'Categorie was successfully Saved'
         else
           render :new, status: 'Error occured will saving Categorie'
         end
@@ -25,7 +27,7 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Categorie.find(params[:id])
+    @category = Category.find(params[:id])
     @category.destroy
     flash[:success] = 'Categorie deleted'
     redirect_to categories_path
@@ -33,7 +35,7 @@ class CategoriesController < ApplicationController
 
   private
 
-  def categorie_params
-    params.require(:categorie).permit(:name, :icon)
+  def category_params
+    params.require(:category).permit(:name, :icon)
   end
 end

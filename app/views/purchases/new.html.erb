@@ -3,6 +3,8 @@
 <%= form_with model: @purchase  do |form| %>
   <%= form.label :name, "Name" %>
   <%= form.text_field :name, placeholder: "Name", required: true%>
+
+
   <%= form.label :amount, "Amount" %>
   <%= form.text_area :amount , placeholder: "Amount..", required: true %>  
   <%= form.submit "Save" %>
