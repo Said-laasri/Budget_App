@@ -1,0 +1,17 @@
+<div class="createpurchase">
+<h3 class='text-2xl font-bold text-center' >Add Purchase</h3>
+<%= form_with model: @purchase, url: category_purchases_path do |form| %>
+ 
+  <%= form.text_field :name, placeholder: "Name", required: true,  class: "input"%>
+  <h4 class='text-xl text-center'>Categories</h4>
+  <div class="mb-3">
+    <%= form.collection_select(:category_ids, current_user.categories, :id, :name, {}, { multiple: true, size: 7,  class: "input" }) %>
+  </div>
+  
+  <%= form.text_area :amount , placeholder: "Amount..", required: true, class: "input" %>  
+  <button type="button" class=" mt-9 pb-4 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2">
+     <%= form.submit "Save" %>
+  </button> 
+ 
+<% end %>
+</div>

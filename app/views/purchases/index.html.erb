@@ -1,0 +1,20 @@
+<h2 class='relative pt-5 italic text-2xl font-bold rounded-lg text-center w-96 bg-blue-300 h-20'><span class="absolute bottom-0 left-0 font-sm text-sm    ">
+ <button type="button" class="  text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm text-center">
+    <%= link_to "<Back", '/categories/'%>
+  </button> 
+</span> Transaction
+
+</h2>
+<section class="bg-slate-300 w-full h-screen relative flex flex-col">
+    <ul class="transactions p-3 flex flex-col w-full gap-3 box-border"> 
+        <% @purchases.each do |transaction| %> 
+        <li class="transaction w-full flex justify-between items-center p-3 bg-white flex-wrap gap-5"> 
+        <h2 class="text-tertiary-500 text-lg"> <%= transaction.name %> </h2> 
+        <p class="font-semibold text-lg"> $<%= transaction.amount %> </p> 
+        </li> 
+        <% end %> 
+    </ul> 
+<button type="button" class=" mt-48 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2">
+<%= link_to 'Add a new purchase', new_category_purchase_path %> 
+</button>
+</section> 
