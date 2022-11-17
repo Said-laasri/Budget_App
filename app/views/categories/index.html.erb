@@ -5,7 +5,7 @@
 <% @categories.each do |category| %>
   <div class="transactions flex py-1 text-xl flex-col w-full gap-3 box-border">
     <%= link_to category_purchases_path(category.id), class: "flex justify-between items-center border border-blue-400  py-1.5 bg-gray-100 pr-8 hover:bg-gray-100" do %>
-      <img src="<%= category.icon%>" alt="icon">
+      <img class="object-contain h-14 w-12" src="<%= category.icon%>" alt="icon">
       <p><%= t(category.name) %></p>   
       <p>$<%= category.purchases.sum(:amount) %></p>
     <% end %>
