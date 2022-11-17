@@ -4,7 +4,7 @@ require 'capybara/rspec'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 require 'devise'
 require 'bullet'
@@ -34,17 +34,17 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   Capybara.register_driver :selenium_chrome do |app|
-    Capybara::Selenium::Driver.new(app, browser: :chrome) 
-  end 
-  Capybara.javascript_driver = :selenium_chrome 
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
+  end
+  Capybara.javascript_driver = :selenium_chrome
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  Capybara.configure do |c| 
-    c.run_server = false 
-    c.app_host = 'http://127.0.0.1:3000' 
-    c.server_port = 3000 
+  Capybara.configure do |c|
+    c.run_server = false
+    c.app_host = 'http://127.0.0.1:3000'
+    c.server_port = 3000
     c.default_host = 'http://127.0.0.1:3000'
-  end 
+  end
 
   # config.include Devise::Test::ControllerHelpers, type: :controller
   # config.include Devise::Test::IntegrationHelpers, type: :system

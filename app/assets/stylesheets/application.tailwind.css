@@ -1,3 +1,5 @@
+/* stylelint-disable at-rule-no-unknown */
+/* stylelint-disable */
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;700&display=swap');
 
 @tailwind base;
@@ -7,11 +9,5 @@
 @layer components {
   .input {
     @apply w-full focus:placeholder-gray-300 placeholder-gray-400 bg-white border-2 border-gray-300;
-  }
-  body {
-    @font-face {
-      font-family: 'Nunito Sans';
-      src: url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;700&display=swap');
-    }
   }
 }
