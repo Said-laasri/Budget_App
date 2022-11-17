@@ -1,18 +1,18 @@
 databases:
-  - name: postgres
+  - name: budget_app
     databaseName: budget_app
     user: postgres
 
 services:
   - type: web
-    name: postgres
+    name: budget_app
     env: ruby
     buildCommand: './bin/render-build.sh'
     startCommand: 'bundle exec puma -C config/puma.rb'
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: postgres
+          name: budget_app
           property: connectionString
       - key: cac4eab13078976d1d55f6f55ab64517
         sync: false
