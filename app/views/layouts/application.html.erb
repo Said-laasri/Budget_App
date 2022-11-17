@@ -9,11 +9,14 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
   </head> 
 
   <body class="flex justify-center">
   <div class="w-96" >
-    
       <% if notice %> <p class=" alert alert-success"><%= notice %></p> <% end %> 
       <% if alert %> <p class=" alert alert-danger"><%= alert %></p> <% end %>
     <%= yield %>

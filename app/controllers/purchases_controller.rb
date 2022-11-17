@@ -2,7 +2,7 @@ class PurchasesController < ApplicationController
   def index
     @purchases = Purchase.where(author_id: current_user.id)
   end
-    
+
   def new
     @purchase = Purchase.new
     @categories = current_user.categories.order(:id)
