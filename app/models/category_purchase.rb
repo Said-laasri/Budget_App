@@ -1,4 +1,4 @@
-class CategoriePurchase < ApplicationRecord
-  belongs_to :categories, class_name: 'Category'
-  belongs_to :purchases, class_name: 'Purchase'
+class CategoryPurchase < ApplicationRecord
+  belongs_to :category
+  belongs_to :purchase
 end

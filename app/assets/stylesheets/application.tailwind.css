@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .input {
+    @apply w-full focus:placeholder-gray-300 placeholder-gray-400 bg-white border-2 border-gray-300;
+  }
+}

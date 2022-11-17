@@ -1,17 +1,11 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all
+    @categories = Category.where(author_id: current_user.id)
   end
 
   def new
     @category = Category.new
   end
-
-  def show
-    @categories = Category.find(params[:id])
-  end
-
-  
 
   def create
     new_category = current_user.categories.new(category_params)
@@ -36,6 +30,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :icon)
+    params.require(:category).permit(:name, :icon).merge(author_id: current_user.id)
   end
 end

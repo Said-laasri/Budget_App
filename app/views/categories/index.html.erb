@@ -1,3 +1,17 @@
-<h3>Categorie Index</h3>
-
-<%= link_to "New Categoie", new_category_path %>
+<h1 class='relative pt-5 italic text-2xl font-bold rounded-lg text-center w-96 bg-blue-300 h-20'><span class="absolute bottom-0 left-0 font-sm text-sm    ">
+ <%= link_to 'Log Out', '/users/sign_out'  %>
+</span> Category</h1>
+<section class="bg-slate-300 w-full h-screan relative flex flex-col">
+<% @categories.each do |category| %>
+  <div class="transactions flex py-1 text-xl flex-col w-full gap-3 box-border">
+    <%= link_to category_purchases_path(category.id), class: "flex justify-between items-center border border-blue-400  py-1.5 bg-gray-100 pr-8 hover:bg-gray-100" do %>
+      <img src="<%= category.icon%>" alt="icon">
+      <p><%= t(category.name) %></p>   
+      <p>$<%= category.purchases.sum(:amount) %></p>
+    <% end %>
+  </div>
+<% end %>
+  <button type="button" class=" mt-96 pb-4 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2">
+    <%= link_to "New Category", new_category_path %>
+  </button> 
+</section>
