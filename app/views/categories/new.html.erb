@@ -1,0 +1,21 @@
+<div class="createCategorie">
+<h3 class='text-2xl font-bold text-center'>Create Categorie</h3>
+<%= form_with model: @category  do |form| %>
+<% if @category.errors.any? %> 
+  <div class="bg-red-300"> 
+    <h3><%= pluralize(@category.errors.count, "error") %> occured:</h3> 
+    <ul> <% @category.errors.full_messages.each do |message| %> 
+      <li><%= message %></li> 
+      <% end %> 
+    </ul> 
+  </div> 
+<% end %> 
+  <%= form.text_field :name, placeholder: "Name", required: true,  class: "input my-2"%>
+  <%= form.text_area :icon , placeholder: "icon...", required: true, class: "input" %>  
+   <button type="button" class=" mt-9 pb-4 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2">
+     <%= form.submit "Save" %>
+  </button> 
+ 
+<% end %>
+</div>
+
